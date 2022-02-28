@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -32,19 +32,19 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function GetStartedForm() {
-    const [vehicleType, setVehicleType] = React.useState('');
 
-    const handleChange = (event) => {
-        setVehicleType(event.target.value);
+    const [input, setInput] = useState({});
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setInput({ ...input, [name]: value });
     };
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        console.log("Data", input);
     };
 
     return (
@@ -75,6 +75,7 @@ export default function GetStartedForm() {
                                         id="Name"
                                         label="Name"
                                         autoFocus
+                                        onChange={handleInputChange}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -85,6 +86,7 @@ export default function GetStartedForm() {
                                         label="Email Address"
                                         name="email"
                                         autoComplete="email"
+                                        onChange={handleInputChange}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -96,6 +98,7 @@ export default function GetStartedForm() {
                                         id="PhoneNo"
                                         label="Phone Number"
                                         autoFocus
+                                        onChange={handleInputChange}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -107,6 +110,7 @@ export default function GetStartedForm() {
                                         id="City"
                                         label="City"
                                         autoFocus
+                                        onChange={handleInputChange}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -115,9 +119,10 @@ export default function GetStartedForm() {
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
-                                            value={vehicleType}
+                                            value={input.VehicleType}
+                                            name="VehicleType"
                                             label="Vehicle Type"
-                                            onChange={handleChange}
+                                            onChange={handleInputChange}
                                         >
                                             <MenuItem value={10}>2 Wheeler</MenuItem>
                                             <MenuItem value={20}>4 Wheeler</MenuItem>
@@ -133,6 +138,8 @@ export default function GetStartedForm() {
                                         id="VehicleMakeModel"
                                         label="Vehicle Make/Model"
                                         autoFocus
+                                        onChange={handleInputChange}
+
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -141,9 +148,12 @@ export default function GetStartedForm() {
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
-                                            value={vehicleType}
+                                            value={input.ServiceRequired}
+                                            name="ServiceRequired"
                                             label="Service Required"
-                                            onChange={handleChange}
+                                            onChange={handleInputChange}
+
+
                                         >
                                             <MenuItem value={10}>Others</MenuItem>
                                         </Select>
@@ -158,6 +168,8 @@ export default function GetStartedForm() {
                                         id="Howdidyouhearaboutus"
                                         label="How did you hear about us?"
                                         autoFocus
+                                        onChange={handleInputChange}
+
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12}>
@@ -169,6 +181,8 @@ export default function GetStartedForm() {
                                         id="comments"
                                         label="Comments"
                                         autoFocus
+                                        onChange={handleInputChange}
+
                                     />
                                 </Grid>
                             </Grid>

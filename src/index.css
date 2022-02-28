@@ -10,6 +10,14 @@
   transform: translate(-50%, -50%);
 }
 
+.bg-red-500{
+  background-color: #7CCACA !important;
+}
+
+.text-red-500{
+  color: #7CCACA !important;
+}
+
 /* ./src/index.css */
 @tailwind base;
 @tailwind components;

@@ -7,7 +7,6 @@ import logo from '../../../../assets/images/logo.png';
 import { withRouter } from "react-router";
 
 const navigation = [
-  { name: 'Home', href: '#', current: true, secLink: 'section0' },
   { name: 'About Us', href: '#', current: false, secLink: 'section2' },
   { name: 'Mission and Vission', href: '#', current: false, secLink: 'section3' },
   { name: 'Our Services', href: '#', current: false, secLink: 'section4' },
@@ -29,9 +28,13 @@ const Navbar = (props) => {
   //   props.history.push('/cases');
   //   // window.location = '/cases';
   // }
-  const handleNav = () =>{
+  const handleNav = () => {
     props.history.push('Get-Started-Form');
   }
+  const goTo = (routepath) => {
+    props.history.push(routepath);
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -80,6 +83,7 @@ const Navbar = (props) => {
                     alt="SaveLifeFoundation"
                   /> */}
                   <img
+                    onClick={() => goTo('/')}
                     className="hidden bg-white p-1 rounded-md lg:block object-fit w-14 mt-5"
                     src={logo}
                     alt="SaveLifeFoundation"
@@ -87,6 +91,13 @@ const Navbar = (props) => {
                 </div>
                 <div className="hidden sm:block sm:ml-6 sm:pl-10 mt-8">
                   <div className="flex space-x-3">
+                    <p
+                      onClick={() => goTo('/')}
+                      style={{ fontFamily: 'Raleway' }}
+                      className=" cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white cursor-pointer px-3 py-2 rounded-md text-xs font-medium uppercase"
+                    >
+                      Home
+                    </p>
                     {navigation.map((item) => (
                       <Link
                         to={item.secLink}
@@ -120,7 +131,7 @@ const Navbar = (props) => {
                   src={india}
                   alt=""
                 />
-                <a onClick={() => handleNav()}  className="hidden sm:block inline-flex text-white font-medium bg-yellow-500 border-0 py-1 px-2 focus:outline-none hover:bg-indigo-600 rounded-sm text-xs">Get Started</a>
+                <a onClick={() => handleNav()} className="cursor-pointer hidden sm:block inline-flex text-white font-medium bg-yellow-500 border-0 py-1 px-2 focus:outline-none hover:bg-indigo-600 rounded-sm text-xs">Get Started</a>
 
                 {/* Profile dropdown */}
                 {/* <Menu as="div" className="ml-3 relative">

@@ -119,7 +119,7 @@ const LandingPage = (props) => {
                   <h1 className="text-white text-sm px-8 sm:px-0 mt-2 font-semibold md:text-xs sm:w-96" style={{ fontFamily: 'Raleway' }}>Take care of your bike in the garage, and the car will take care of you on the road. </h1>
                   <h1 className="text-white text-xs mt-2 font-semibold md:text-xs sm:w-96" style={{ fontFamily: 'Raleway' }}>Hepl us create a better world</h1>
                   <div className="flex justify-center space-x-3 sm:justify-start mt-6">
-                    <a onClick={() => handleNav()} className="flex flex-col items-center inline-flex text-white font-medium bg-red-500 border-0 p-2 sm:py-2 sm:px-2 focus:outline-none hover:bg-indigo-600 rounded text-lg sm:text-lg">
+                    <a onClick={() => handleNav()} className=" cursor-pointer flex flex-col items-center inline-flex text-white font-medium bg-red-500 border-0 p-2 sm:py-2 sm:px-2 focus:outline-none hover:bg-indigo-600 rounded text-lg sm:text-lg">
                       <div>
                         Get Started
                       </div>
